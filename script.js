@@ -1,67 +1,46 @@
-// Smooth nav highlight on scroll
-const sections = document.querySelectorAll('section[id]');
-const navLinks = document.querySelectorAll('nav a[href^="#"]');
+// Shop page — filter by type
+const filterBtns = document.querySelectorAll('.filter-btn');
+const shopCards = document.querySelectorAll('.shop-card');
 
-const observer = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        navLinks.forEach((link) => {
-          link.style.opacity = link.getAttribute('href') === '#' + entry.target.id ? '1' : '0.7';
-        });
-      }
+if (filterBtns.length && shopCards.length) {
+  const emptyState = document.querySelector('.empty-state');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach((b) => b.classList.remove('is-active'));
+      btn.classList.add('is-active');
+
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+
+      shopCards.forEach((card) => {
+        const matches = filter === 'all' || card.dataset.type === filter;
+        card.hidden = !matches;
+        if (matches) visibleCount++;
+      });
+
+      if (emptyState) emptyState.hidden = visibleCount > 0;
     });
-  },
-  { threshold: 0.4 }
-);
-
-sections.forEach((s) => observer.observe(s));
-
-// Contact form – demo submission handler
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('button[type="submit"]');
-  btn.textContent = 'sending...';
-  btn.disabled = true;
-  setTimeout(() => {
-    e.target.reset();
-    btn.textContent = 'send message';
-    btn.disabled = false;
-    const note = document.getElementById('form-note');
-    note.hidden = false;
-    setTimeout(() => { note.hidden = true; }, 5000);
-  }, 1200);
+  });
 }
 
-// Fade-in on scroll
-const fadeEls = document.querySelectorAll('.card, .step, .about-text, .contact-form');
-const fadeObserver = new IntersectionObserver(
-  (entries) => {
-    entries.forEach((el) => {
-      if (el.isIntersecting) {
-        el.target.classList.add('visible');
-        fadeObserver.unobserve(el.target);
+// Product page — gallery thumbnails
+const galleryMain = document.getElementById('gallery-main');
+const thumbs = document.querySelectorAll('.thumb');
+
+if (galleryMain && thumbs.length) {
+  thumbs.forEach((thumb) => {
+    thumb.addEventListener('click', () => {
+      thumbs.forEach((t) => t.classList.remove('is-active'));
+      thumb.classList.add('is-active');
+
+      const img = thumb.dataset.img;
+      if (img) {
+        galleryMain.innerHTML = `<img src="${img}" alt="Cherry beaded necklace">`;
+      } else {
+        const label = thumb.dataset.label || 'photo coming soon';
+        galleryMain.innerHTML = `<div class="placeholder-photo"><span>${label}</span></div>`;
       }
     });
-  },
-  { threshold: 0.12 }
-);
-
-fadeEls.forEach((el) => {
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(20px)';
-  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-  fadeObserver.observe(el);
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.visible').forEach((el) => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
   });
-});
-
-// Add .visible styles via JS
-const style = document.createElement('style');
-style.textContent = '.visible { opacity: 1 !important; transform: none !important; }';
-document.head.appendChild(style);
+}

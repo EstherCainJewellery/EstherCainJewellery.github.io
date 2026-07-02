@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — Esther Cain</title>
+  <meta name="description" content="Every piece £5, ready to post. Handmade beaded necklaces and bracelets." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&family=Caveat:wght@400..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">Esther Cain</a>
+      <nav>
+        <a href="shop.html" class="active">shop</a>
+        <a href="about.html">about</a>
+        <a href="#footer">contact</a>
+        <a href="shop.html" class="nav-cta">shop · £5</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HEADER -->
+  <section class="page-header">
+    <p class="eyebrow tilt-n1">every piece £5 · ready to post</p>
+    <h1>the collection</h1>
+    <span class="scribble scribble--olive page-header-scribble tilt8">pick your favourite ↓</span>
+  </section>
+
+  <!-- FILTER -->
+  <div class="filter-bar" role="group" aria-label="Filter by type">
+    <button class="filter-btn is-active" data-filter="all">everything</button>
+    <button class="filter-btn" data-filter="necklace">necklaces</button>
+    <button class="filter-btn" data-filter="bracelet">bracelets</button>
+  </div>
+
+  <!-- GRID -->
+  <section class="section shop-grid-section">
+    <div class="product-grid product-grid--4">
+
+      <a href="product.html" class="product-card shop-card" data-type="necklace">
+        <div class="product-photo"><img src="assets/necklace-red.webp" alt="Cherry beaded necklace"></div>
+        <p class="product-name">Cherry Bead Necklace</p>
+        <p class="product-price">£5</p>
+      </a>
+
+      <div class="product-card shop-card" data-type="bracelet">
+        <div class="placeholder-photo"><span>bracelet · photo</span></div>
+        <p class="product-name">Sunshine Bracelet</p>
+        <p class="product-price product-price--soon">£5 · photos soon</p>
+      </div>
+
+      <div class="product-card shop-card" data-type="necklace">
+        <div class="placeholder-photo"><span>necklace · photo</span></div>
+        <p class="product-name">Sea Glass Necklace</p>
+        <p class="product-price product-price--soon">£5 · photos soon</p>
+      </div>
+
+      <div class="product-card shop-card" data-type="bracelet">
+        <div class="placeholder-photo"><span>bracelet · photo</span></div>
+        <p class="product-name">Meadow Bracelet</p>
+        <p class="product-price product-price--soon">£5 · photos soon</p>
+      </div>
+
+      <div class="product-card shop-card" data-type="necklace">
+        <div class="placeholder-photo"><span>necklace · photo</span></div>
+        <p class="product-name">Bluebell Necklace</p>
+        <p class="product-price product-price--soon">£5 · photos soon</p>
+      </div>
+
+      <div class="product-card shop-card" data-type="bracelet">
+        <div class="placeholder-photo"><span>bracelet · photo</span></div>
+        <p class="product-name">Honey Bracelet</p>
+        <p class="product-price product-price--soon">£5 · photos soon</p>
+      </div>
+
+      <div class="product-card shop-card" data-type="necklace">
+        <div class="placeholder-photo"><span>necklace · photo</span></div>
+        <p class="product-name">Coral Necklace</p>
+        <p class="product-price product-price--soon">£5 · photos soon</p>
+      </div>
+
+      <div class="product-card shop-card" data-type="bracelet">
+        <div class="placeholder-photo"><span>bracelet · photo</span></div>
+        <p class="product-name">Daisy Chain Bracelet</p>
+        <p class="product-price product-price--soon">£5 · photos soon</p>
+      </div>
+
+    </div>
+    <p class="empty-state" hidden>Nothing here yet — check back soon!</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer" id="footer">
+    <div class="footer-inner">
+      <a href="index.html" class="footer-logo">Esther Cain</a>
+      <nav class="footer-nav">
+        <a href="shop.html">Shop</a>
+        <a href="about.html">About</a>
+        <a href="mailto:esther@britishprogress.org">Email me</a>
+      </nav>
+      <span class="footer-note">£5 shipping · pay by PayPal · thank you! ♡</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
